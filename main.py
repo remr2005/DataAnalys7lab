@@ -42,7 +42,7 @@ def main() -> None:
     words = sorted(train_set, key=lambda x: train_set[x][0] if len(x) >= 5 else 0)[-7:]
     words = [(i, train_set[i][0]/spam_count, train_set[i][1]/ham_count if train_set[i][1]/ham_count else 0.01)  for i in words]
     # пробуем без сглаживания
-    print(test(words, dataset[-35:]))
+    print("", test(words, dataset[-35:]))
     # проведем сглаживание
     words = word_probabilities([(i[0], train_set[i[0]][0], train_set[i[0]][1]) for i in words], spam_count, ham_count)
     print(test(words, dataset[-35:]))
